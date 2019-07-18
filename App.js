@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
+import HomeScreen from './src/screen/Home'
+import AntonymsScreen from './src/screen/Antonyms'
+import TestModeScreen from './src/screen/TestMode'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>11+ Antonyms and Synonyms Learning and Test Aid</Text>
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
+const MainNavigator = createStackNavigator({
+  Home: {screen: HomeScreen},
+  Antonyms: {screen: AntonymsScreen},
+  TestMode: {screen: TestModeScreen}
 });
+
+const App = createAppContainer(MainNavigator);
+
+export default App;
